@@ -1,16 +1,15 @@
 package com.assessment.Motel666.Entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Motel")
 public class Motel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "User_Id")
     private String userId;
     @Column(name = "Type")
@@ -23,11 +22,20 @@ public class Motel {
     public Motel() {
     }
 
-    public Motel(String userId, String type, long timestamp, String context) {
+    public Motel(Long id, String userId, String type, long timestamp, String context) {
+        this.id = id;
         this.userId = userId;
         this.type = type;
         this.timestamp = timestamp;
         this.context = context;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUserId() {
