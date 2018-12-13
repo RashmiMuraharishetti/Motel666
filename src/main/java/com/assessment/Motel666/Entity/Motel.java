@@ -16,11 +16,14 @@ public class Motel {
     @Column(name = "Type")
     private String type;
     @Column(name = "Timestamp")
-    private String timestamp;
+    private long timestamp;
     @Column(name = "Context")
     private String context;
 
-    public Motel(String userId, String type, String timestamp, String context) {
+    public Motel() {
+    }
+
+    public Motel(String userId, String type, long timestamp, String context) {
         this.userId = userId;
         this.type = type;
         this.timestamp = timestamp;
@@ -43,11 +46,11 @@ public class Motel {
         this.type = type;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
