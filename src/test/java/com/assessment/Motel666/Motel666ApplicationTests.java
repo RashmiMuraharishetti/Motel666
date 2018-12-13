@@ -13,5 +13,10 @@ public class Motel666ApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testPostDetails(){
+
+	}
+
 }
 
