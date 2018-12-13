@@ -16,4 +16,8 @@ public class MotelService {
     public Motel addDetails(Motel motel){
         return motelRepository.save(motel);
     }
+
+    public Iterable<Motel> getDetails(){
+        return motelRepository.findAll();
+    }
 }

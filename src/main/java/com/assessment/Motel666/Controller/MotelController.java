@@ -21,4 +21,9 @@ public class MotelController {
     public Motel addDetails(@RequestBody Motel motel){
         return motelService.addDetails(motel);
     }
+
+    @RequestMapping(value = "/getdetails", method = RequestMethod.GET)
+    public Iterable<Motel> getDetails(){
+        return motelService.getDetails();
+    }
 }

@@ -10,6 +10,10 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -35,6 +39,19 @@ public class Motel666ApplicationTests {
         Assert.assertEquals(expected, actual);
 
 	}
+
+	@Test
+    public void testGetDetails(){
+	    Iterable<Motel> expected = new ArrayList<Motel>();
+        MotelController motelController = new MotelController(mockService);
+
+        when(mockService.getDetails()).thenReturn(expected);
+
+        Iterable<Motel> actual = motelController.getDetails();
+
+        verify(mockService, times(1)).getDetails();
+
+    }
 
 }
 
