@@ -21,9 +21,9 @@ public class MotelController {
         return motelService.addDetails(motel);
     }
 
-    @RequestMapping(value = "/getdetails", method = RequestMethod.GET)
-    public Iterable<Motel> getDetails(){
-        return motelService.getDetails();
+    @RequestMapping(value = "/getdetails/{timestamp1}/{timestamp2}", method = RequestMethod.GET)
+    public Iterable<Motel> getDetails(@PathVariable long timestamp1, @PathVariable long timestamp2){
+        return motelService.getDetails(timestamp1, timestamp2);
     }
 
     @RequestMapping(value = "/getdetailsbyid/{userId}", method = RequestMethod.GET)

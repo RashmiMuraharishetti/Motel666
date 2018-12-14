@@ -40,7 +40,7 @@ public class Motel666ApplicationTests {
 
 	@Test
 	public void testPostDetails(){
-        Motel expected = new Motel("1b468f7d-79e8-40c1-80a2-0dd7226e7771", "promotion-viewed", 1544401072, "homepage.topnav");
+        Motel expected = new Motel(1L, "1b468f7d-79e8-40c1-80a2-0dd7226e7771", "promotion-viewed", 1544401072, "homepage.topnav");
         MotelController motelController = new MotelController(mockService);
 
         when(mockService.addDetails(expected)).thenReturn(expected);
@@ -56,11 +56,11 @@ public class Motel666ApplicationTests {
 	    Iterable<Motel> expected = new ArrayList<Motel>();
         MotelController motelController = new MotelController(mockService);
 
-        when(mockService.getDetails()).thenReturn(expected);
+        when(mockService.getDetails(anyLong(), anyLong())).thenReturn(expected);
 
-        Iterable<Motel> actual = motelController.getDetails();
+        Iterable<Motel> actual = motelController.getDetails(34L,89L);
 
-        verify(mockService, times(1)).getDetails();
+        verify(mockService, times(1)).getDetails(anyLong(), anyLong());
 
     }
 
@@ -81,7 +81,7 @@ public class Motel666ApplicationTests {
             e.printStackTrace();
         }*/
 
-       Iterable<Motel> actual = motelController.getDetailsById(anyString());
+       Iterable<Motel> actual = motelController.getDetailsById("rtsye");
 
         verify(mockService, Mockito.times(1)).findByuserId(anyString());
         verifyNoMoreInteractions(mockService);
